@@ -4,7 +4,7 @@ Robolectric Gradle Test Sample
 ![](https://raw.github.com/moltak/Robolectric_Gradle_Test_Sample/master/screenshots/s1_main.png)
 ![](https://raw.github.com/moltak/Robolectric_Gradle_Test_Sample/master/screenshots/s2_test.png)
 
-MainActivity.java
+MainActivityTest.java
 ------------------
 ```java
 @RunWith(RobolectricGradleTestRunner.class)
