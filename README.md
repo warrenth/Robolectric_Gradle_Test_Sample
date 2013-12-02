@@ -4,6 +4,30 @@ Robolectric Gradle Test Sample
 ![](https://raw.github.com/moltak/Robolectric_Gradle_Test_Sample/master/screenshots/s1_main.png)
 ![](https://raw.github.com/moltak/Robolectric_Gradle_Test_Sample/master/screenshots/s2_test.png)
 
+MainActivity.java
+------------------
+```java
+@RunWith(RobolectricGradleTestRunner.class)
+public class MainActivityTest {
+    @Test
+    public void testInitialize() {
+        // activity get
+        FragmentActivity a = Robolectric.buildActivity(MainActivity.class).create().start().resume().get();
+
+        // fragment not check
+        Fragment f1 = a.getSupportFragmentManager().findFragmentByTag("placeholderFragment");
+        assertNotNull(f1);
+
+        // resource check
+        Resources r = a.getResources();
+        String s = r.getString(R.string.hello_world);
+
+        TextView textView = (TextView)f1.getView().findViewById(R.id.textview);
+        String ts = textView.getText().toString();
+        assertEquals(s, ts);
+    }
+}
+```
 
 build.gradle
 ------------------
